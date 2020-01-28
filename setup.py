@@ -3,11 +3,11 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-    name='emf-web-crawler',
-    version='0.1.1',
-    scripts=['emf-web-crawler'],
+    name='emfwebcrawler',
+    version='0.1.4',
     author="Erik Fabry",
     author_email="erikfabry@gmail.com",
+    license="MIT",
     description="Basic web crawler",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,7 +16,6 @@ setuptools.setup(
     install_requires=[
         'pandas',
         'numpy',
-        'logging',
         'beautifulsoup4',
         'requests',
     ],
