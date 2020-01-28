@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='emf-web-crawler',
-    version='0.1',
+    version='0.1.1',
     scripts=['emf-web-crawler'],
     author="Erik Fabry",
     author_email="erikfabry@gmail.com",
