@@ -16,6 +16,9 @@ setuptools.setup(
     install_requires=[
         'pandas',
         'numpy',
+        'logging',
+        'beautifulsoup4',
+        'requests',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
