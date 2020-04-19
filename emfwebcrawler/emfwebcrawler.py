@@ -95,13 +95,11 @@ def pagerank(matrix, d: float = 0.85, max_error=.005):
     temp_matrix = np.array([1])
     unit_matrix = np.array([1])
 
-    for i in range(1, len(matrix)):
-        unit_matrix = np.vstack((unit_matrix, temp_matrix))
-
     old_pr = np.array([1 / len(matrix)])
     pr = np.array([1 / len(matrix)])
     temp_pr = np.array([1 / len(matrix)])
     for i in range(1, len(matrix)):
+        unit_matrix = np.vstack((unit_matrix, temp_matrix))
         old_pr = np.vstack((old_pr, temp_pr))
         pr = np.vstack((pr, temp_pr))
 
