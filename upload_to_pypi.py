@@ -6,10 +6,10 @@ import subprocess
 cwd = os.getcwd()
 
 commands = [
-    f'cd {cwd}',
+    f'cd "{cwd}"',
     f'rm -r dist',
-    f'python setup.py bdist_wheel',
-    f'twine upload dist/*',
+    f'python3.7 setup.py bdist_wheel',
+    f'python3.7 -m twine upload dist/*',
 ]
 joined_commands = ';'.join(commands)
 

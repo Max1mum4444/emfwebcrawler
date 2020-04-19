@@ -1,3 +1,3 @@
 from .emfwebcrawler import (
-    analyze,
+    analyze, get_links, pagerank
 )
