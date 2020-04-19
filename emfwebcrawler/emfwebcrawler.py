@@ -102,19 +102,16 @@ def pagerank(matrix, d: float = 0.85, max_error=.005):
         unit_matrix = np.vstack((unit_matrix, temp_matrix))
         old_pr = np.vstack((old_pr, temp_pr))
         pr = np.vstack((pr, temp_pr))
+    error = 1
+    iteration = 0
 
-    try:
-        error = 1
-        iteration = 0
-        while error > max_error:
-            iteration += 1
-            print('iteration: ', iteration)
-            old_pr = pr
-            pr = ((1 - d) / len(matrix)) * unit_matrix + d * matrix.dot(old_pr)
-            partial_error = abs(old_pr - pr)
-            print('partial error: ', partial_error)
-            error = partial_error.max()
-            print('error: ', error)
-        return pr
-    except NameError:
-        print('Variable pr is undefined, matrix is probably empty')
+    while error > max_error:
+        iteration += 1
+        print('iteration: ', iteration)
+        old_pr = pr
+        pr = ((1 - d) / len(matrix)) * unit_matrix + d * matrix.dot(old_pr)
+        partial_error = abs(old_pr - pr)
+        print('partial error: ', partial_error)
+        error = partial_error.max()
+        print('error: ', error)
+    return pr
