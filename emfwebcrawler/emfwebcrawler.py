@@ -100,7 +100,7 @@ def pagerank(matrix, d: float = 0.85, max_error=.005):
             print('partial error: ', partial_error)
             error = partial_error.max()
             print('error: ', error)
-        print('PR:', pr)
+        return pr
     except NameError:
         print('Variable pr is undefined, matrix is probably empty')
 
