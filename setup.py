@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='emfwebcrawler',
-    version='0.1.5',
+    version='0.1.6',
     author="Erik Fabry",
     author_email="erikfabry@gmail.com",
     license="MIT",
@@ -19,6 +19,7 @@ setuptools.setup(
         'beautifulsoup4',
         'requests',
         'lxml',
+        'werkzeug',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
