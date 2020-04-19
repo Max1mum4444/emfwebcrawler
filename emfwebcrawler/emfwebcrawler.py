@@ -68,7 +68,8 @@ def analyze(url, level):
                 matrix_size = index_to
 
             matrix[index_from][index_to] = 1
-            print('Matrix - from: ', href, ', to: ', page, ', index_from: ', index_from, ', index_to: ', index_to,', value:', matrix[index_from][index_to])
+            print('Matrix - from: ', href, ', to: ', page, ', index_from: ', index_from, ', index_to: ', index_to,
+                  ', value:', matrix[index_from][index_to])
         index_from += 1
     return table, matrix
 
@@ -102,3 +103,20 @@ def pagerank(matrix, d: float = 0.85, max_error=.005):
         print('PR:', pr)
     except NameError:
         print('Variable pr is undefined, matrix is probably empty')
+
+
+def prepare_matrix_for_pagerank(matrix):
+    matrix_transposed = matrix.transpose()
+    # print('transpose matrix:')
+    # print(matrix_transposed)
+    # ma vykonat sucet np.sum z 0 osi, cize stlpce a na matici matrix_transposed
+    column_sum = np.apply_along_axis(np.sum, 0, matrix_transposed)
+    # print('column sum transponovanej matice:')
+    # print(column_sum)
+    column_sum[column_sum == 0] = 1
+    # print('nejaky upraveny column sum, kde sa 0 zmeni na 1 oproti predoslemu:')
+    # print(column_sum)
+    # pocet  prepojeni z jednej stranky = column_sum a kedze sa pociatocne cislo rozdeluje podla toho
+    # do kolkych stranok ukauje aktualna stranka, tak 1/column_sum, pri com 1 je pociatocna hodnota z matice
+    # a pri vzorci na vypocet matic potrebujeme transponovanu maticu, tak preto sa aj transponovala na zaciatku
+    return matrix_transposed / column_sum
